@@ -2,6 +2,8 @@
 
 import librosa
 import numpy as np
+from microfone       import *
+
 
 
 def sound_features(sound_record):
@@ -56,7 +58,8 @@ def sound_features(sound_record):
 def analyze_rms(sound_record, threshold):
     y = sound_record.ravel()
     rms = librosa.feature.rms(y=y)
-    return any(i >= threshold for i in rms)
+    bigger_than = rms[rms>=10]. astype('float64')
+    return rms.shape[0] > 0
 
 
 
