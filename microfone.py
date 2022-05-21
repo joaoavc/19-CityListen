@@ -17,7 +17,7 @@ def listen():
     while(True):
         analyze_myrecording = sd.rec(int(seconds_analyze * fs), samplerate=fs, channels=2)
 
-        if(analyze_rms(analyze_myrecording, 10)):
+        if(analyze_rms(analyze_myrecording, 20)):
             myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
             sd.wait()  # Wait until recording is finished
             print("RECORD")
