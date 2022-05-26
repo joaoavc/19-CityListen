@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 
 
 def classifier(features):
-    model = pickle.load(open('lr.p','rb'))
+    model = pickle.load(open('decision_tree.p','rb'))
     scaler = StandardScaler()
     #X = scaler.fit_transform(features)
     predict = model.predict(features)

@@ -7,7 +7,8 @@ from pydub import AudioSegment
 from sound_detection import *
 
 
-
+# ruido de fundo 5 minutos
+#L95
 def listen():
     fs = 44100  # Sample rate
     seconds = 3  # Duration of recording
