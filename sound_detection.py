@@ -56,11 +56,12 @@ def sound_features(sound_record):
 
 
 def analyze_rms(sound_record, threshold):
-    y = sound_record.ravel()
-    rms = librosa.feature.rms(y=y)
-    bigger_than = rms[rms>=threshold]
-    exists = 1 in bigger_than
-    return exists
+    rms = librosa.feature.rms(y=sound_record)
+    max_value = np.max(rms)
+    print(max_value)
+
+    
+    return max_value >= threshold
 
 
 def calculate_rms(sound):
@@ -72,7 +73,7 @@ def calculate_rms(sound):
 def analyze_spectrual_flux(sound_record, threshold):
     sample_rate = 44100
     y = sound_record.ravel()
-    onset_env = librosa.onset.onset_strength(y=data, sr=sample_rate)
+    onset_env = librosa.onset.onset_strength(y=y, sr=sample_rate)
     return any(i >= threshold for i in onset_env)
 
 
