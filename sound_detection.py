@@ -58,9 +58,15 @@ def sound_features(sound_record):
 def analyze_rms(sound_record, threshold):
     y = sound_record.ravel()
     rms = librosa.feature.rms(y=y)
-    bigger_than = rms[rms>=10]. astype('float64')
-    return rms.shape[0] > 0
+    bigger_than = rms[rms>=threshold]
+    exists = 1 in bigger_than
+    return exists
 
+
+def calculate_rms(sound):
+    y = sound.ravel()
+    rms = librosa.feature.rms(y=y)
+    return rms
 
 
 def analyze_spectrual_flux(sound_record, threshold):
