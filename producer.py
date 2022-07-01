@@ -20,7 +20,7 @@ class SoundCapture(Thread):
         counter = 0
         while True:
             self.empty.acquire()           
-            sound_record  = listen()
+            sound_record  = event_detection()
             self.buffer.put(sound_record)
             counter +=1
             print("Sound Captured:  ", counter)

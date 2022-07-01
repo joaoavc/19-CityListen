@@ -29,11 +29,9 @@ consumer = EventAnalysis(buffer, empty, full)
 producer.start()
 consumer.start()
 
- 
 # Waiting for threads to complete
 producer.join()
 consumer.join()
-
 
 
 ##if __name__ == "__main__":
